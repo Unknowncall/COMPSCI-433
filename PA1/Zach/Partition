@@ -1,0 +1,30 @@
+class Partition {
+    
+    public int partition(int[] A, left, right, pivot) {
+        int pivotIndex = left, partitionIndex = (left - 1);
+        for (int i = left; i < right; i++) {
+            if (A[i] == pivot) {
+                pivotIndex = k;
+            }
+            if (A[i] <= pivot) {
+                partitionIndex++;
+            }
+        }
+        QuickSort.swap(A, pivotIndex, partitionIndex);
+        int i = left, j = right;
+        while (i < j) {
+            while (i <= partitionIndex && A[i] <= pivot) {
+                i++;
+            }
+            while (j > partitionIndex && A[j] > pivot) {
+                j--;
+            }
+            if (i < j) {
+                QuickSort.swap(A, i, j);
+                i++; j++;
+            }
+            return partitionIndex;
+        }
+
+    }
+}
