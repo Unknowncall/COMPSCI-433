@@ -33,6 +33,8 @@ class QuickSort {
     }
 
     public void swap(int[] A, int first, int second) {
-
+        int tmp = A[first];
+        A[first] = A[second];
+        A[second] = tmp;
     }
 }
