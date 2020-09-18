@@ -19,7 +19,7 @@ public class QuickSort extends Partition {
 			return;
 		}
 		
-		int pivot = generateRandomPivot(left, right);
+		int pivot = generateMedianOf3Pivot(left, right);
 		int partitionIndex = partition(left, right, pivot);
 		quicksortMedianOf3(left, partitionIndex - 1);
 		quicksortMedianOf3(partitionIndex + 1, right);
