@@ -29,7 +29,7 @@ public class InversionCounting {
 
     private int countInversions(int left, int right) { // complete this function
         int count = 0;
-        if (right - left < 1) {
+        if (right - left < 2) {
             InsertionSort.insertionSort(array, left, right);
             return count;
         }
@@ -40,6 +40,7 @@ public class InversionCounting {
         while (i <= mid && j <= right) {
             if (array[j] < array[i]) {
                 mergedArray[k++] = array[j++];
+                count += (mid - i);
             } else {
                 mergedArray[k++] = array[i++];
                 count++;
