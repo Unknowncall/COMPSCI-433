@@ -68,3 +68,4 @@ public class TestCorrectness {
 		testInversions(sorting, n);
 	}
 }
+//my selection part doesnt work and i havent done the inversion counting part
