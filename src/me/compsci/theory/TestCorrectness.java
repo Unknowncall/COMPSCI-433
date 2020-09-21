@@ -1,10 +1,5 @@
 package me.compsci.theory;
 
-import me.compsci.theory.MergeSort;
-import me.compsci.theory.QuickSort;
-import me.compsci.theory.RadixSort;
-import me.compsci.theory.Selection;
-
 import java.util.Arrays;
 
 public class TestCorrectness {
@@ -55,12 +50,12 @@ public class TestCorrectness {
 		}
 	}
 
-	/*
+
 	private static void testInversions(int array[], int n) {
 		System.out.println("Array is: " + Arrays.toString(array));
 		System.out.println("Number of inversions is: " + new InversionCounting(array, n).countInversions());
 	}
-	 */
+
 
 	public static void main(String args[]) throws Exception {
 		System.out.println("*** Correctness Test ***\n");
@@ -73,6 +68,6 @@ public class TestCorrectness {
 		System.out.println();
 		testSelection(selection, n);
 		System.out.println();
-		//testInversions(sorting, n);
+		testInversions(sorting, n);
 	}
 }

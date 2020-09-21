@@ -1,5 +1,7 @@
 package me.compsci.theory;
 
+import java.util.Arrays;
+
 public class InversionCounting {
 
     private final int mergedArray[];
@@ -26,5 +28,23 @@ public class InversionCounting {
     }
 
     private int countInversions(int left, int right) { // complete this function
+        int count = 0;
+        if (right - left < 1) {
+            InsertionSort.insertionSort(array, left, right);
+            return count;
+        }
+        int mid = (left + right) / 2;
+        count += countInversions(left, mid);
+        count += countInversions(mid + 1, right);
+        int i = left, j = mid + 1, k = left;
+        while (i <= mid && j <= right) {
+            if (array[j] < array[i]) {
+                mergedArray[k++] = array[j++];
+            } else {
+                mergedArray[k++] = array[i++];
+                count++;
+            }
+        }
+        return count;
     }
 }

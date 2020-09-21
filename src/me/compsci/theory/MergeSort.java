@@ -45,6 +45,5 @@ public class MergeSort {
 			array[i] = mergedArray[i];
 			i++;
 		}
-
 	}
 }
