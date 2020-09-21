@@ -21,6 +21,18 @@ public class RadixSort {
 		return max;
 	}
 	
+	public static int getMin(int A[], int n) {
+		int min = A[0];
+		
+		for(int i = 1; i < n; i++) {
+			if(A[i] < min) {
+				min = A[i];
+			}
+		}
+		
+		return min;
+	}
+	
 	private static void countSortOnDigits(int A[], int n, int digits[]) {
 		int[] C = new int[10];
 		int[] T = new int[n];
@@ -47,6 +59,14 @@ public class RadixSort {
 	}
 
 	public void radixSort() { 
+		int m = getMin(array, n);
+		if(m >= 0) {
+			radixSortNonNeg(array, n);
+			return;
+		}
 		
+		for(int i = 0; i < n; i++) { array[i] -= m; }
+		radixSortNonNeg(array, n);
+		for(int i = 0; i < n; i++) { array[i] += m; }
 	}
 }
