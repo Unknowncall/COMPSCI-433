@@ -1,6 +1,11 @@
+package me.compsci.theory;
+
+import me.compsci.theory.MergeSort;
+import me.compsci.theory.QuickSort;
+import me.compsci.theory.RadixSort;
+import me.compsci.theory.Selection;
 
 import java.util.Arrays;
-import java.util.SplittableRandom;
 
 public class TestCorrectness {
 
@@ -30,20 +35,17 @@ public class TestCorrectness {
 		System.out.println("RadixSorted array:               " + Arrays.toString(temp));
 	}
 
-
 	private static void testSelection(int array[], int n) throws Exception {
 		int mergeArray[] = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			mergeArray[i] = array[i];
 		new MergeSort(mergeArray, n).mergesort();
-		
+
 		int selArray[] = new int[n];
 		for (int k = 1; k <= n; k++) {
-			for (int j = 0; j < n; j++) {
+			for (int j = 0; j < n; j++)
 				selArray[j] = array[j];
-			}
-
 			Selection selection = new Selection(selArray, n);
 			int answer = selection.select(k);
 			System.out.printf(k + "th smallest: %d", answer);
@@ -62,21 +64,15 @@ public class TestCorrectness {
 
 	public static void main(String args[]) throws Exception {
 		System.out.println("*** Correctness Test ***\n");
-		int sorting[] = new int[15];
+		int sorting[] = { 19, 1, 12, 100, 7, 8, 4, -10, 14, -1, 97, -1009, 4210 };
 		int n = sorting.length;
-		SplittableRandom rand = new SplittableRandom();
-		for (int i = 0; i < n; i++) {
-			sorting[i] = rand.nextInt(-100, 100);
-		}
-
 		int selection[] = new int[n];
 		for (int i = 0; i < n; i++)
 			selection[i] = sorting[i];
 		testSorting(sorting, n);
 		System.out.println();
-		//testSelection(selection, n);
+		testSelection(selection, n);
 		System.out.println();
 		//testInversions(sorting, n);
 	}
 }
-//my selection part doesnt work and i havent done the inversion counting part

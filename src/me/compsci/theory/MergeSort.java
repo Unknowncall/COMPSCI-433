@@ -1,3 +1,6 @@
+package me.compsci.theory;
+
+import me.compsci.theory.InsertionSort;
 
 public class MergeSort {
 

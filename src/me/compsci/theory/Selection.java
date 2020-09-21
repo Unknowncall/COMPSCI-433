@@ -1,3 +1,6 @@
+package me.compsci.theory;
+
+import java.util.Arrays;
 
 public class Selection extends Partition {
 
@@ -14,12 +17,12 @@ public class Selection extends Partition {
             return array[left];
         }
 
-        int pivot = generateMedianOf3Pivot(left, right);
+        int pivot = generateRandomPivot(left, right);
         int partitionIndex = partition(left, right, pivot);
 
-        if (k == partitionIndex - left + 1) {
+        if (k == (partitionIndex - left + 1)) {
             return pivot;
-        } else if (k < partitionIndex - left + 1) {
+        } else if (k < (partitionIndex - left + 1)) {
             return select(left, partitionIndex - 1, k);
         } else {
             return select(partitionIndex + 1, right, k - (partitionIndex - left + 1));

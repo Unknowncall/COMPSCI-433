@@ -1,3 +1,7 @@
+package me.compsci.theory;
+
+import me.compsci.theory.InsertionSort;
+import me.compsci.theory.Partition;
 
 public class QuickSort extends Partition {
 
