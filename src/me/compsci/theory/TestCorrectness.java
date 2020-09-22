@@ -26,7 +26,7 @@ public class TestCorrectness {
 
 		for (int i = 0; i < n; i++)
 			temp[i] = array[i];
-		new RadixSort(temp, n).radixSort();
+		new RadixSort(temp, n).radixApproach2();
 		System.out.println("RadixSorted array:               " + Arrays.toString(temp));
 	}
 
