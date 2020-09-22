@@ -1,10 +1,11 @@
 package me.compsci.theory;
 
 import java.util.Random;
+import java.util.SplittableRandom;
 
 public class TestTime {
 
-    static Random rand;
+    static SplittableRandom rand;
 
     private static void testIfSorted(int A[], int len, char s) throws Exception {
         for (int i = 0; i < len - 1; i++)
@@ -144,8 +145,9 @@ public class TestTime {
             System.out.print(num + ", " + (timeEnd - timeStart));
 
             timeStart = System.currentTimeMillis();
-            if (count != invCount.countInversions())
-                throw new Exception("Inversion Counting code is incorrect");
+            int count2 = invCount.countInversions();
+            if (count != count2)
+                throw new Exception("Inversion Counting code is incorrect. Brute: " + count + " Merge: " + count2);
             timeEnd = System.currentTimeMillis();
             mergeSortAvg += (timeEnd - timeStart);
             System.out.println(", " + (timeEnd - timeStart));
@@ -156,12 +158,12 @@ public class TestTime {
     }
 
     public static void main(String args[]) throws Exception {
-        rand = new Random(System.currentTimeMillis());
-        System.out.println("*** Time Test Sorting ***\n");
+        rand = new SplittableRandom(System.currentTimeMillis());
+        /*System.out.println("*** Time Test Sorting ***\n");
         compareSorting();
         System.out.println("\n*** Time Test Selection ***\n");
         compareSelection();
-        System.out.println("\n*** Time Test Inversion ***\n");
+        System.out.println("\n*** Time Test Inversion ***\n");*/
         compareInversion();
     }
 }
